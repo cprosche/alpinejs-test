@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
+    <title>Alpine.js Testing</title>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Alpine.js Testing</h1>
+      <article x-data="{ open: true }">
+        <button
+          @click="open = !open"
+          x-text="open ? 'Close' : 'Expand'"
+        ></button>
+        <div x-show="open">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet
+          maiores repudiandae veritatis explicabo! Dolorem tempora adipisci
+          maiores at omnis earum eaque laboriosam unde numquam? Eius
+          consequuntur quos rerum debitis eaque.
+        </div>
+      </article>
+      <article x-data="{ count: 0 }">
+        <h3>Count: <span x-text="count"></span></h3>
+        <div class="grid">
+          <button @click="count++">+1</button>
+          <button @click="count--">-1</button>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>
+
+<style>
+  :root {
+    --primary: #1bd873 !important;
+    --primary-hover: #18c229 !important;
+    --primary-focus: rgba(216, 27, 96, 0.125) !important;
+    --primary-inverse: #fff !important;
+  }
+</style>
