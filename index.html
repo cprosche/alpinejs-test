@@ -18,7 +18,7 @@
           @click="open = !open"
           x-text="open ? 'Close' : 'Expand'"
         ></button>
-        <div x-show="open">
+        <div x-show="open" x-transition>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet
           maiores repudiandae veritatis explicabo! Dolorem tempora adipisci
           maiores at omnis earum eaque laboriosam unde numquam? Eius
@@ -28,9 +28,25 @@
       <article x-data="{ count: 0 }">
         <h3>Count: <span x-text="count"></span></h3>
         <div class="grid">
-          <button @click="count++">+1</button>
           <button @click="count--">-1</button>
+          <button @click="count++">+1</button>
         </div>
+      </article>
+      <article x-data="{ text: '' }">
+        <input type="text" x-model="text" />
+        <p x-text="text"></p>
+      </article>
+      <article x-data="{ todos: [] }">
+        <h3>List</h3>
+        <div class="grid">
+          <input type="text" x-model="todo" @keydown.enter="todos.push(todo)" />
+          <button @click="todos.push(todo)">Add</button>
+        </div>
+        <ul>
+          <template x-for="(todo, index) in todos" :key="index">
+            <li x-text="todo"></li>
+          </template>
+        </ul>
       </article>
     </main>
   </body>
